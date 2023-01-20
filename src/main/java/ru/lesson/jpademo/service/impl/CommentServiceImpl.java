@@ -32,11 +32,7 @@ public class CommentServiceImpl implements CommentService {
 
     private final CommentRepository commentRepository;
 
-    public CommentServiceImpl(ContentRepository contentRepository, UserRepository userRepository, CommentRepository commentRepository) {
-        this.contentRepository = contentRepository;
-        this.userRepository = userRepository;
-        this.commentRepository = commentRepository;
-    }
+
 
     @Override
     public CommentDto create(CreateCommentDto createCommentDto) {//метод создает комментарий
@@ -83,12 +79,7 @@ public class CommentServiceImpl implements CommentService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         Comment comment = optionalComment.get();
-//        if (comment.getAuthor() != null) {
-//            comment.setAuthor(createCommentDto.getAuthorId());
-//        }
-//        if (comment.getContent() != null) {
-//            comment.setContent(createCommentDto.getContentId());
-//        }
+
         if (createCommentDto.getMessageText() != null) {
             comment.setMessageText(createCommentDto.getMessageText());
         }
