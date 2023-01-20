@@ -83,12 +83,7 @@ public class CommentServiceImpl implements CommentService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         Comment comment = optionalComment.get();
-//        if (comment.getAuthor() != null) {
-//            comment.setAuthor(createCommentDto.getAuthorId());
-//        }
-//        if (comment.getContent() != null) {
-//            comment.setContent(createCommentDto.getContentId());
-//        }
+
         if (createCommentDto.getMessageText() != null) {
             comment.setMessageText(createCommentDto.getMessageText());
         }
